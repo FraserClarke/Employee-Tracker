@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/FraserClarke/Employee-Tracker/issues"
   },
-  "homepage": "https://github.com/FraserClarke/Employee-Tracker#readme"
+  "homepage": "https://github.com/FraserClarke/Employee-Tracker#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
 }
