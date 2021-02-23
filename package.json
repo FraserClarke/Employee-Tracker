@@ -1,0 +1,24 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "description": "employee tracker application utilizing sql, node, inquirer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FraserClarke/Employee-Tracker.git"
+  },
+  "keywords": [
+    "mysql",
+    "node",
+    "inquirer"
+  ],
+  "author": "Fraser Clarke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FraserClarke/Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/FraserClarke/Employee-Tracker#readme"
+}
