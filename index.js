@@ -62,10 +62,10 @@ const employeeView = () => {
     //   .then((answer) => {
         const query = 'SELECT id, first_name, last_name, role_id, manager_id  FROM employee '; // WHERE ? --USE FOR ADDING/SEARCHING
         // because viewing no need for where
-        connection.query(query, {},  (err, res) => { //might be null if no results...dummy emplyees required.
+        connection.query(query, {id : first_name, last_name, role_id, manager_id },  (err, res) => { //might be null if no results...dummy emplyees required.
           res.forEach(({ id, first_name, last_name, role_id, manager_id }) => {
             console.log(
-              `Position: ${id} || `// Song: ${song} || Year: ${year}`
+              `Position: ${id} ||  First Name: ${first_name} || Last_Name: ${last_name} || Role Id: ${role_id} || Manager Id: ${manager_id}`
             );
           });
           runSearch();
