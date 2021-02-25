@@ -15,7 +15,7 @@ const connection = mysql.createConnection({
   // ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'yourRootPassword'
 
   // Be sure to update with your own MySQL password!
-  password: 'leopard55', // Incorrect password = Access denied error
+  password: 'password', // Incorrect password = Access denied error
   database: 'employee_db', // Make sure this is an existing database
 });
 
@@ -59,10 +59,10 @@ const employeeView = () => {
     //     type: 'input',
     //     message: 'What artist would you like to search for?',
     //   })
-    //   .then((answer) => {
+       //((answer) => {
         const query = 'SELECT id, first_name, last_name, role_id, manager_id  FROM employee '; // WHERE ? --USE FOR ADDING/SEARCHING
         // because viewing no need for where
-        connection.query(query, {id : first_name, last_name, role_id, manager_id },  (err, res) => { //might be null if no results...dummy emplyees required.
+        connection.query(query, {first_name : answer.first_name, last_name, role_id, manager_id },  (err, res) => { //might be null if no results...dummy emplyees required.
           res.forEach(({ id, first_name, last_name, role_id, manager_id }) => {
             console.log(
               `Position: ${id} ||  First Name: ${first_name} || Last_Name: ${last_name} || Role Id: ${role_id} || Manager Id: ${manager_id}`
