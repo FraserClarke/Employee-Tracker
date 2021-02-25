@@ -3,22 +3,20 @@
 
 -- TEST SCENARIO seed.sql. 
 
-USE employee_db;
-
 INSERT INTO department (name)
 VALUES 
-('Custodial')
+('Custodial'),
 ('Information Technology'),
 ('Finance'),
 ('Legal'),
 ('Human Resources'),
 ('Security'),
-('Sales');
-('Management')
+('Sales'),
+('Management');
 
 INSERT INTO role (title, salary, department_id)
 VALUES
-('Intern', 25000, 1)
+('Intern', 25000, 1),
 ('Web Developer', 75000, 2),
 ('Accountant', 90000, 3),
 ('Paralegal', 50000, 4),
@@ -34,11 +32,11 @@ VALUES
 ('Cameron', 'Miller', 3, 486),
 ('Maria', 'Hall', 4, 126),
 ('Linda', 'Blair', 5, 724),
-('Melissa', 'Stewart', 6, 236);
-('James', 'Cagney', 7, 169);
-('Bruce', 'Buffer', 8, 452);
-('Biff', 'Tannen', 9, 310);
-('Micheal', 'Sommers', 10, 327);
-('Ben', 'Danson', 11, 218);
-('Stephen', 'Hutchens', 12, 644);
+('Melissa', 'Stewart', 6, 236),
+('James', 'Cagney', 7, 169),
+('Bruce', 'Buffer', 8, 452),
+('Biff', 'Tannen', 9, 310),
+('Micheal', 'Sommers', 10, 327),
+('Ben', 'Danson', 11, 218),
+('Stephen', 'Hutchens', 12, 644),
 ('Amy', 'Sheffield', 13, 788);
