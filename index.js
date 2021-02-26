@@ -94,7 +94,7 @@ const employeeView = () => {
       if (err) throw err;
       
       //JSON.stringify(res);
-      console.log(action.res);
+      //console.log(action.res);
       console.log(res);
       //connection.end();
     });
