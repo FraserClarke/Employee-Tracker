@@ -67,7 +67,12 @@ const menuOptions = () => {
       let action = res.action;
       switch (
         action //choice.action
-      ) { //VIEW
+      ) { //Exit
+        case "Exit Application":
+            console.log(action);
+            exitApp();
+            break;
+        //VIEW
         case "View Employees":
           console.log(action);
           employeeView();
@@ -99,9 +104,31 @@ const menuOptions = () => {
           employeeUpdateRoles();
           break;
         //Optional
-          case "View Employees":
+          case "Update employee managers":
           console.log(action);
-          employeeView();
+          updateEmpManagers();
+          break;
+          case "View employees by manager":
+          console.log(action);
+          viewEmpByManager();
+          break;
+
+          case "Delete departments":
+          console.log(action);
+          deleteDepartments();
+          break;
+          case "Delete roles":
+          console.log(action);
+          deleteRoles();
+          break;
+          case "Delete employees":
+          console.log(action);
+          deleteeEmployees();
+          break;
+          
+          case "View Budget for specific department":
+          console.log(action);
+          viewBudget();
           break;
 
         // .then((answer) => {
@@ -168,6 +195,10 @@ const employeeView = () => {
 //  });
 // });
 // };
+// exitApp()  =>{
+//     connection.end();  
+// }
+
 menuOptions();
 //   connection.connect((err) => {
 //     if (err) throw err;
