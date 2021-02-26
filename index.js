@@ -21,7 +21,7 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) throw err;
   console.log(`connected as id ${connection.threadId}`);
-  connection.end();
+  //connection.end();
 });
 
 //MUST HAVE
@@ -67,11 +67,7 @@ const menuOptions = () => {
       let action = res.action;
       switch (
         action //choice.action
-      ) { //Exit
-        case "Exit Application":
-            console.log(action);
-            exitApp();
-            break;
+      ) { 
         //VIEW
         case "View Employees":
           console.log(action);
@@ -131,6 +127,12 @@ const menuOptions = () => {
           viewBudget();
           break;
 
+          //Exit
+        case "Exit Application":
+            console.log(action);
+            exitApp();
+            break;
+
         // .then((answer) => {
         //     switch (answer.action) {
         //       case 'View Employees':
@@ -138,7 +140,7 @@ const menuOptions = () => {
         //         break;
 
         default:
-          console.log(`Invalid action: ${answer.action}`);
+          console.log(`Action: ${action}`);
           break;
       }
       // })
@@ -168,6 +170,7 @@ const employeeView = () => {
     //JSON.stringify(res);
     //console.log(action.res);
     console.log(res);
+    menuOptions();
     //connection.end();
   });
 };
@@ -198,7 +201,10 @@ const employeeView = () => {
 // exitApp()  =>{
 //     connection.end();  
 // }
-
+ const exitApp = () => {
+    connection.end();
+    }
+    //exitApp();
 menuOptions();
 //   connection.connect((err) => {
 //     if (err) throw err;
