@@ -210,18 +210,43 @@ const departmentsView = () => {
         name: "addDepartment",
         message: "Enter Department name:",
       },
-    )
-    connection.query("INSERT INTO department SET ?", (err, res) => {
-      if (err) throw err;
+    ).then(data => {
+      console.log(data);
+      connection.query("INSERT INTO department SET ?", data.addDepartment, (err, res) => {
+        if (err) throw err;
   
-      //JSON.stringify(res);
-      //console.log(action.res);
-      console.log(res);
-      console.table(res);
-      menuOptions();
-      //connection.end();
-    });
+        //       //JSON.stringify(res);
+        //       //console.log(action.res);
+          console.log(res);
+          console.table(res);
+               menuOptions();
+        //       //connection.end();
+       })
+    })
   };
+
+//   const departmentsAdd = () => {
+//     inquirer
+//     .prompt(
+//     {
+//         type: "input",
+//         name: "addDepartment",
+//         message: "Enter Department name:",
+//       },
+//     ).then(data => {
+//         console.log(data);
+//     })
+//     connection.query("INSERT INTO department SET ?",   (err, res) => {
+//       if (err) throw err;
+  
+//       //JSON.stringify(res);
+//       //console.log(action.res);
+//       console.log(res);
+//       console.table(res);
+//       menuOptions();
+//       //connection.end();
+//     });
+//   };
 
 //   const createProduct = () => {
 //     console.log('Inserting a new product...\n');
@@ -243,6 +268,38 @@ const departmentsView = () => {
 //     // logs the actual query being run
 //     console.log(query.sql);
 //   };
+
+// try this syntaxt
+// var addNewProduct = _function_() {
+//        inquirer.prompt([{
+//                name: “product_Name”,
+//                type: “input”,
+//                message: “Please enter the name of your product:”
+//            }, {
+//                name: “dept_Name”,
+//                type: “input”,
+//                message: “Enter department name:”
+//            }, {
+//                name: “unit_price”,
+//                type: “input”,
+//                message: “Enter price for product:”
+//            }, {
+//                name: “units_InStock”,
+//                type: “input”,
+//                message: “Enter units in stock:”
+//            }
+//        ]).then(function_(_answers) {
+//            connection.query(“INSERT INTO products SET ?“, {
+//                productName: answers.product_Name,
+//                deptName: answers.dept_Name,
+//                unitPrice: answers.unit_price,
+//                unitsInStock: answers.units_InStock
+//            }, function_(_err, res) {
+//                var newProd = new newProduct(answers.product_Name, answers.dept_name, answers.unit_price, answers.units_InStock);
+//                console.log(newProd);
+//                continueWorking();
+//            });
+//        })
 
   
 // inquirer
