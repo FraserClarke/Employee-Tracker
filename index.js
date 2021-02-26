@@ -189,6 +189,19 @@ const departmentsView = () => {
     });
   };
 
+  const rolesView = () => {
+    connection.query("SELECT * FROM role", (err, res) => {
+      if (err) throw err;
+  
+      //JSON.stringify(res);
+      //console.log(action.res);
+      console.log(res);
+      console.table(res);
+      menuOptions();
+      //connection.end();
+    });
+  };
+
 // inquirer
 //   .prompt({
 //     name: 'artist',
