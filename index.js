@@ -45,7 +45,25 @@ const runSearch = () => {
     type: 'rawlist',
     message: 'What would you like to do?',
     choices: [
-      'View Employees',
+        'View Departments',
+        'View Employees',
+        'View Roles',
+
+        'Add Departments',
+        'Add Roles',
+        'Add Employees',
+
+        'Update Employee Roles',
+        // Optional
+        'Update employee managers',
+        'View employees by manager',
+
+        'Delete departments', 
+        'Delete roles',
+        'Delete employees',
+
+        'View Budget for specific department',
+
     ],
   })
   .then((res => {
