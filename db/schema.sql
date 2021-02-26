@@ -28,7 +28,7 @@ SELECT * FROM department;
 --   * **department_id** -  INT to hold reference to department role belongs to
 
    CREATE TABLE role(
-  id INT NOT NULL AUTO_INCREMENT,,
+  id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL,
   department_id INT,
