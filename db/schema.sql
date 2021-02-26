@@ -12,12 +12,13 @@ USE employee_db;
 
 --   id - INT PRIMARY KEY
 --   name - VARCHAR(30) to hold department name
-
-   CREATE TABLE department(
-  id INT NOT NULL,
+CREATE TABLE department(
+  id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(30) NOT NULL,
   PRIMARY KEY (id)
 );
+
+SELECT * FROM department;
 
 -- role:
 
@@ -27,14 +28,14 @@ USE employee_db;
 --   * **department_id** -  INT to hold reference to department role belongs to
 
    CREATE TABLE role(
-  id INT NOT NULL,
+  id INT NOT NULL AUTO_INCREMENT,,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL,
   department_id INT,
   PRIMARY KEY (id)
 );
 
-
+SELECT * FROM role;
 -- employee**:
 
 --   id - INT PRIMARY KEY
@@ -52,3 +53,5 @@ USE employee_db;
   manager_id INT  ,
   PRIMARY KEY (id)
 );
+
+SELECT * FROM employee;
