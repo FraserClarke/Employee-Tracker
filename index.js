@@ -170,10 +170,24 @@ const employeeView = () => {
     //JSON.stringify(res);
     //console.log(action.res);
     console.log(res);
+    console.table(res);
     menuOptions();
     //connection.end();
   });
 };
+
+const departmentsView = () => {
+    connection.query("SELECT * FROM department", (err, res) => {
+      if (err) throw err;
+  
+      //JSON.stringify(res);
+      //console.log(action.res);
+      console.log(res);
+      console.table(res);
+      menuOptions();
+      //connection.end();
+    });
+  };
 
 // inquirer
 //   .prompt({
