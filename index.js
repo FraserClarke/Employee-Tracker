@@ -26,6 +26,17 @@ connection.connect((err) => {
 });
 
 
+    //MUST HAVE
+//    View departments, roles, employees
+//      Add departments, roles, employees
+//       Update employee roles
+
+        //Optional
+ //Update employee managers
+//  View employees by manager
+// Delete departments, roles, and employees
+// View the total utilized budget of a department -- ie the combined salaries of all employees in that department
+       
 
 const runSearch = () => {
   inquirer
@@ -37,22 +48,57 @@ const runSearch = () => {
       'View Employees',
     ],
   })
-  .then((answer) => {
-    switch (answer.action) {
+  .then((res => {
+    let action = res.action;
+    switch (action) { //choice.action
       case 'View Employees':
-       employeeView();
+        console.log(action);
+      employeeView();
         break;
 
       
 
       default:
-        console.log(`Invalid action: ${answer.action}`);
+        console.log(`Invalid action: ${action}`);
         break;
-    }
-  });
-};
+        }
+   // })
+  
+}));
 
+// .then(res => {
+//     Stuff
+//     }
+//     }
+//     )}
+}
 const employeeView = () => {
+    
+//     const query =
+//     'SELECT artist FROM top5000 GROUP BY artist HAVING count(*) > 1';
+//   connection.query(query, (err, res) => {
+//     if (err) throw err;
+//     res.forEach(({ artist }) => console.log(artist));
+//     runSearch();
+//   });
+// };
+
+// const afterConnection = () => {
+//     connection.query('SELECT * FROM products', (err, res) => {
+//       if (err) throw err;
+      
+//       //JSON.stringify(res);
+//       console.log(res);
+//       connection.end();
+//     });
+//   };
+    
+    
+    
+    
+    
+    
+    
     // inquirer
     //   .prompt({
     //     name: 'artist',
@@ -62,8 +108,12 @@ const employeeView = () => {
        //((answer) => {
         const query = 'SELECT id, first_name, last_name, role_id, manager_id  FROM employee '; // WHERE ? --USE FOR ADDING/SEARCHING
         // because viewing no need for where
-        connection.query(query, {first_name : answer.first_name, last_name, role_id, manager_id },  (err, res) => { //might be null if no results...dummy emplyees required.
-          res.forEach(({ id, first_name, last_name, role_id, manager_id }) => {
+        //console.log(query);
+        //console.log(answer);
+        connection.query(query, {action: first_name, last_name, role_id, manager_id },  (err, res) => { //might be null if no results...dummy emplyees required.
+            console.log(answer);
+            //console.log("test--------------");
+            res.forEach(({ id, first_name, last_name, role_id, manager_id }) => {
             console.log(
               `Position: ${id} ||  First Name: ${first_name} || Last_Name: ${last_name} || Role Id: ${role_id} || Manager Id: ${manager_id}`
             );
@@ -74,4 +124,5 @@ const employeeView = () => {
   };
   runSearch();
 
-// Finish schema file, correct syntax etc.
+
+  // Finish schema file, correct syntax etc
