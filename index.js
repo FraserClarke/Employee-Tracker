@@ -202,6 +202,49 @@ const departmentsView = () => {
     });
   };
 
+  const departmentsAdd = () => {
+    inquirer
+    .prompt(
+    {
+        type: "input",
+        name: "addDepartment",
+        message: "Enter Department name:",
+      },
+    )
+    connection.query("INSERT INTO department SET ?", (err, res) => {
+      if (err) throw err;
+  
+      //JSON.stringify(res);
+      //console.log(action.res);
+      console.log(res);
+      console.table(res);
+      menuOptions();
+      //connection.end();
+    });
+  };
+
+//   const createProduct = () => {
+//     console.log('Inserting a new product...\n');
+//     const query = connection.query(
+//       'INSERT INTO products SET ?',
+//       {
+//         flavor: 'Rocky Road',
+//         price: 3.0,
+//         quantity: 50,
+//       },
+//       (err, res) => {
+//         if (err) throw err;
+//         console.log(`${res.affectedRows} product inserted!\n`);
+//         // Call updateProduct AFTER the INSERT completes
+//         updateProduct();
+//       }
+//     );
+  
+//     // logs the actual query being run
+//     console.log(query.sql);
+//   };
+
+  
 // inquirer
 //   .prompt({
 //     name: 'artist',
