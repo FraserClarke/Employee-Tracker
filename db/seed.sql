@@ -34,9 +34,9 @@ VALUES
 ('Linda', 'Blair', 5, 724),
 ('Melissa', 'Stewart', 6, 236),
 ('James', 'Cagney', 7, 169),
-('Bruce', 'Buffer', 8, 452),
-('Biff', 'Tannen', 9, 310),
-('Micheal', 'Sommers', 10, 327),
-('Ben', 'Danson', 11, 218),
-('Stephen', 'Hutchens', 12, 644),
-('Amy', 'Sheffield', 13, 788);
+('Bruce', 'Buffer', 3, 452),
+('Biff', 'Tannen', 2, 310),
+('Micheal', 'Sommers', 6, 327),
+('Ben', 'Danson', 1, 218),
+('Stephen', 'Hutchens', 3, 644),
+('Amy', 'Sheffield', 7, 788);
