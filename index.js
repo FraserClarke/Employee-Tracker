@@ -258,7 +258,8 @@ const departmentsView = () => {
     .then(data => {
         console.log(data);
        //INSERT INTO department SET ? data.addRole 
-        connection.query(`INSERT INTO role (title, salary, department_id)VALUES ("${data.addRoleTitle},${data.addRoleSalary},${data.addDeptId}");`,  (err, res) => {
+        connection.query(`INSERT INTO role (title, salary, department_id)
+        VALUES ("${data.addRoleTitle}","${data.addRoleSalary}","${data.addDeptId}");`,  (err, res) => {
           if (err) throw err;
           //       //JSON.stringify(res);                   
             console.log(res);
