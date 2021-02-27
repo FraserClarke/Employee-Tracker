@@ -271,6 +271,16 @@ const departmentsView = () => {
          })
       })
     };
+
+    const employeeAdd = () => {
+        inquirer
+        .prompt(
+        {
+            type: "input",
+            name: "addDepartment",
+            message: "Enter Department name:",
+          },
+        )};
 //   const departmentsAdd = () => {
 //     inquirer
 //     .prompt(
