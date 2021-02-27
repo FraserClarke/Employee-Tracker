@@ -241,8 +241,18 @@ const departmentsView = () => {
     .prompt(
     {
         type: "input",
-        name: "addRole",
-        message: "Enter Department name:",
+        name: "addRoleTitle",
+        message: "Enter Title:",
+      },
+      {
+        type: "input",
+        name: "addRoleSalary",
+        message: "Enter Salary:",
+      },
+      {
+        type: "input",
+        name: "addDeptId",
+        message: "Enter Department ID:",
       },
     );}
 
