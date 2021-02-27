@@ -295,7 +295,22 @@ const departmentsView = () => {
             name: "addManagerId",
             message: "Enter Manager ID:",
           },]  
-        )};
+        )//};
+        .then(data => {
+            console.log(data);
+            connection.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
+            VALUES ("${data.addFirstName}","${data.addLastName}","${data.addRoleId}","${data.addManagerId}");`,  (err, res) => {
+              if (err) throw err;
+              //       //JSON.stringify(res);                   
+                console.log(res);
+                console.table(res);
+                 employeeView();
+                     
+                menuOptions();
+              
+             })
+          })
+        };
 
         // first_name VARCHAR(30) NOT NULL,
         // last_name VARCHAR(30) NOT NULL,
