@@ -236,6 +236,16 @@ const departmentsView = () => {
     })
   };
 
+  const rolesAdd = () => {
+    inquirer
+    .prompt(
+    {
+        type: "input",
+        name: "addRole",
+        message: "Enter Department name:",
+      },
+    );}
+
 //   const departmentsAdd = () => {
 //     inquirer
 //     .prompt(
