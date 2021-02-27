@@ -238,7 +238,7 @@ const departmentsView = () => {
 
   const rolesAdd = () => {
     inquirer
-    .prompt(
+    .prompt([
     {
         type: "input",
         name: "addRoleTitle",
@@ -253,12 +253,12 @@ const departmentsView = () => {
         type: "input",
         name: "addDeptId",
         message: "Enter Department ID:",
-      },
+      }],
     )//;}
     .then(data => {
         console.log(data);
        //INSERT INTO department SET ? data.addRole 
-        connection.query(`INSERT INTO department (name)VALUES ("${data.addRoleTitle},${data.addRoleSalary},${data.addDeptId}");`,  (err, res) => {
+        connection.query(`INSERT INTO role (title, salary, department_id)VALUES ("${data.addRoleTitle},${data.addRoleSalary},${data.addDeptId}");`,  (err, res) => {
           if (err) throw err;
           //       //JSON.stringify(res);                   
             console.log(res);
