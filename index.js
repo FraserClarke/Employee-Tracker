@@ -67,7 +67,7 @@ const menuOptions = () => {
       let action = res.action;
       switch (
         action //choice.action
-      ) { 
+      ) {
         //VIEW
         case "View Employees":
           console.log(action);
@@ -100,38 +100,38 @@ const menuOptions = () => {
           employeeUpdateRoles();
           break;
         //Optional
-          case "Update employee managers":
+        case "Update employee managers":
           console.log(action);
           updateEmpManagers();
           break;
-          case "View employees by manager":
+        case "View employees by manager":
           console.log(action);
           viewEmpByManager();
           break;
 
-          case "Delete departments":
+        case "Delete departments":
           console.log(action);
           deleteDepartments();
           break;
-          case "Delete roles":
+        case "Delete roles":
           console.log(action);
           deleteRoles();
           break;
-          case "Delete employees":
+        case "Delete employees":
           console.log(action);
           deleteeEmployees();
           break;
-          
-          case "View Budget for specific department":
+
+        case "View Budget for specific department":
           console.log(action);
           viewBudget();
           break;
 
-          //Exit
+        //Exit
         case "Exit Application":
-            console.log(action);
-            exitApp();
-            break;
+          console.log(action);
+          exitApp();
+          break;
 
         // .then((answer) => {
         //     switch (answer.action) {
@@ -177,69 +177,71 @@ const employeeView = () => {
 };
 
 const departmentsView = () => {
-    connection.query("SELECT * FROM department", (err, res) => {
-      if (err) throw err;
-  
-      //JSON.stringify(res);
-      //console.log(action.res);
-      console.log(res);
-      console.table(res);
-      menuOptions();
-      //connection.end();
-    });
-  };
+  connection.query("SELECT * FROM department", (err, res) => {
+    if (err) throw err;
 
-  const rolesView = () => {
-    connection.query("SELECT * FROM role", (err, res) => {
-      if (err) throw err;
-  
-      //JSON.stringify(res);
-      //console.log(action.res);
-      console.log(res);
-      console.table(res);
-      menuOptions();
-      //connection.end();
-    });
-  };
+    //JSON.stringify(res);
+    //console.log(action.res);
+    console.log(res);
+    console.table(res);
+    menuOptions();
+    //connection.end();
+  });
+};
 
-  const departmentsAdd = () => {
-    inquirer
-    .prompt(
-    {
-        type: "input",
-        name: "addDepartment",
-        message: "Enter Department name:",
-      },
-    ).then(data => {
+const rolesView = () => {
+  connection.query("SELECT * FROM role", (err, res) => {
+    if (err) throw err;
+
+    //JSON.stringify(res);
+    //console.log(action.res);
+    console.log(res);
+    console.table(res);
+    menuOptions();
+    //connection.end();
+  });
+};
+
+const departmentsAdd = () => {
+  inquirer
+    .prompt({
+      type: "input",
+      name: "addDepartment",
+      message: "Enter Department name:",
+    })
+    .then((data) => {
       console.log(data);
-    //   const pushDepartment = new pushDepartment (
-    //       data.addDepartment,
-    //       //console.log(pushDepartment)
-    //   )
-     // console.log(pushDepartment);
-     //INSERT INTO department SET ? data.addDepartment 
-      connection.query(`INSERT INTO department (name)VALUES ("${data.addDepartment}");`,  (err, res) => {
-        //data.addDepartment;
-        //const pushDepartment = new pushDepartment 
-        if (err) throw err;
-  
-        //       //JSON.stringify(res);
-        //       //console.log(action.res);
-         console.log(data.addDepartment);
+      //   const pushDepartment = new pushDepartment (
+      //       data.addDepartment,
+      //       //console.log(pushDepartment)
+      //   )
+      // console.log(pushDepartment);
+      //INSERT INTO department SET ? data.addDepartment
+      connection.query(
+        `INSERT INTO department (name)VALUES ("${data.addDepartment}");`,
+        (err, res) => {
+          //data.addDepartment;
+          //const pushDepartment = new pushDepartment
+          if (err) throw err;
+
+          //       //JSON.stringify(res);
+          //       //console.log(action.res);
+          console.log(data.addDepartment);
           console.log(res);
           console.table(res);
-           departmentsView();
-               
-          menuOptions();
-        //       //connection.end();
-       })
-    })
-  };
+          departmentsView();
 
-  const rolesAdd = () => {
-    inquirer
+          menuOptions();
+          //       //connection.end();
+        }
+      );
+    });
+};
+
+const rolesAdd = () => {
+  inquirer
     .prompt([
-    {
+      {
         type: "input",
         name: "addRoleTitle",
         message: "Enter Title:",
@@ -253,69 +255,73 @@ const departmentsView = () => {
         type: "input",
         name: "addDeptId",
         message: "Enter Department ID:",
-      }],
-    )//;}
-    .then(data => {
-        console.log(data);
-       //INSERT INTO department SET ? data.addRole 
-        connection.query(`INSERT INTO role (title, salary, department_id)
-        VALUES ("${data.addRoleTitle}","${data.addRoleSalary}","${data.addDeptId}");`,  (err, res) => {
+      },
+    ]) //;}
+    .then((data) => {
+      console.log(data);
+      //INSERT INTO department SET ? data.addRole
+      connection.query(
+        `INSERT INTO role (title, salary, department_id)
+        VALUES ("${data.addRoleTitle}","${data.addRoleSalary}","${data.addDeptId}");`,
+        (err, res) => {
           if (err) throw err;
-          //       //JSON.stringify(res);                   
-            console.log(res);
-            console.table(res);
-             rolesView();
-                 
-            menuOptions();
-          
-         })
-      })
-    };
+          //       //JSON.stringify(res);
+          console.log(res);
+          console.table(res);
+          rolesView();
 
-    const employeeAdd = () => {
-        inquirer
-        .prompt([
-        {
-            type: "input",
-            name: "addFirstName",
-            message: "Enter First name:",
-          },
-          {
-            type: "input",
-            name: "addLastName",
-            message: "Enter Last name:",
-          },
-          {
-            type: "input",
-            name: "addRoleId",
-            message: "Enter Role ID:",
-          },
-          {
-            type: "input",
-            name: "addManagerId",
-            message: "Enter Manager ID:",
-          },]  
-        )//};
-        .then(data => {
-            console.log(data);
-            connection.query(`INSERT INTO employee (first_name, last_name, role_id, manager_id)
-            VALUES ("${data.addFirstName}","${data.addLastName}","${data.addRoleId}","${data.addManagerId}");`,  (err, res) => {
-              if (err) throw err;
-              //       //JSON.stringify(res);                   
-                console.log(res);
-                console.table(res);
-                 employeeView();
-                     
-                menuOptions();
-              
-             })
-          })
-        };
+          menuOptions();
+        }
+      );
+    });
+};
 
-        // first_name VARCHAR(30) NOT NULL,
-        // last_name VARCHAR(30) NOT NULL,
-        // role_id INT  ,
-        // manager_id INT  ,       
+const employeeAdd = () => {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "addFirstName",
+        message: "Enter First name:",
+      },
+      {
+        type: "input",
+        name: "addLastName",
+        message: "Enter Last name:",
+      },
+      {
+        type: "input",
+        name: "addRoleId",
+        message: "Enter Role ID:",
+      },
+      {
+        type: "input",
+        name: "addManagerId",
+        message: "Enter Manager ID:",
+      },
+    ]) //};
+    .then((data) => {
+      console.log(data);
+      connection.query(
+        `INSERT INTO employee (first_name, last_name, role_id, manager_id)
+            VALUES ("${data.addFirstName}","${data.addLastName}","${data.addRoleId}","${data.addManagerId}");`,
+        (err, res) => {
+          if (err) throw err;
+          //       //JSON.stringify(res);
+          console.log(res);
+          console.table(res);
+          employeeView();
+
+          menuOptions();
+        }
+      );
+    });
+};
+
+// first_name VARCHAR(30) NOT NULL,
+// last_name VARCHAR(30) NOT NULL,
+// role_id INT  ,
+// manager_id INT  ,
 //   const departmentsAdd = () => {
 //     inquirer
 //     .prompt(
@@ -329,7 +335,7 @@ const departmentsView = () => {
 //     })
 //     connection.query("INSERT INTO department SET ?",   (err, res) => {
 //       if (err) throw err;
-  
+
 //       //JSON.stringify(res);
 //       //console.log(action.res);
 //       console.log(res);
@@ -355,7 +361,7 @@ const departmentsView = () => {
 //         updateProduct();
 //       }
 //     );
-  
+
 //     // logs the actual query being run
 //     console.log(query.sql);
 //   };
@@ -392,7 +398,6 @@ const departmentsView = () => {
 //            });
 //        })
 
-  
 // inquirer
 //   .prompt({
 //     name: 'artist',
@@ -417,12 +422,12 @@ const departmentsView = () => {
 // });
 // };
 // exitApp()  =>{
-//     connection.end();  
+//     connection.end();
 // }
- const exitApp = () => {
-    connection.end();
-    }
-    //exitApp();
+const exitApp = () => {
+  connection.end();
+};
+//exitApp();
 menuOptions();
 //   connection.connect((err) => {
 //     if (err) throw err;
