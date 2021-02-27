@@ -212,11 +212,18 @@ const departmentsView = () => {
       },
     ).then(data => {
       console.log(data);
+    //   const pushDepartment = new pushDepartment (
+    //       data.addDepartment,
+    //       //console.log(pushDepartment)
+    //   )
+     // console.log(pushDepartment);
       connection.query("INSERT INTO department SET ?", data.addDepartment, (err, res) => {
+        //const pushDepartment = new pushDepartment 
         if (err) throw err;
   
         //       //JSON.stringify(res);
         //       //console.log(action.res);
+         console.log(data.addDepartment);
           console.log(res);
           console.table(res);
                menuOptions();
