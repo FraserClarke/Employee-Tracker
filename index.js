@@ -274,13 +274,33 @@ const departmentsView = () => {
 
     const employeeAdd = () => {
         inquirer
-        .prompt(
+        .prompt([
         {
             type: "input",
-            name: "addDepartment",
-            message: "Enter Department name:",
+            name: "addFirstName",
+            message: "Enter First name:",
           },
+          {
+            type: "input",
+            name: "addLastName",
+            message: "Enter Last name:",
+          },
+          {
+            type: "input",
+            name: "addRoleId",
+            message: "Enter Role ID:",
+          },
+          {
+            type: "input",
+            name: "addManagerId",
+            message: "Enter Manager ID:",
+          },]  
         )};
+
+        // first_name VARCHAR(30) NOT NULL,
+        // last_name VARCHAR(30) NOT NULL,
+        // role_id INT  ,
+        // manager_id INT  ,       
 //   const departmentsAdd = () => {
 //     inquirer
 //     .prompt(
