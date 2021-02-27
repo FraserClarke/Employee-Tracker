@@ -217,7 +217,9 @@ const departmentsView = () => {
     //       //console.log(pushDepartment)
     //   )
      // console.log(pushDepartment);
-      connection.query("INSERT INTO department SET ?", data.addDepartment, (err, res) => {
+     //INSERT INTO department SET ? data.addDepartment 
+      connection.query(`INSERT INTO department (name)VALUES ("${data.addDepartment}");`,  (err, res) => {
+        //data.addDepartment;
         //const pushDepartment = new pushDepartment 
         if (err) throw err;
   
@@ -226,7 +228,9 @@ const departmentsView = () => {
          console.log(data.addDepartment);
           console.log(res);
           console.table(res);
-               menuOptions();
+           departmentsView();
+               
+          menuOptions();
         //       //connection.end();
        })
     })
