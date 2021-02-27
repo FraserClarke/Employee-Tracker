@@ -254,8 +254,22 @@ const departmentsView = () => {
         name: "addDeptId",
         message: "Enter Department ID:",
       },
-    );}
-
+    )//;}
+    .then(data => {
+        console.log(data);
+       //INSERT INTO department SET ? data.addRole 
+        connection.query(`INSERT INTO department (name)VALUES ("${data.addRoleTitle},${data.addRoleSalary},${data.addDeptId}");`,  (err, res) => {
+          if (err) throw err;
+          //       //JSON.stringify(res);                   
+            console.log(res);
+            console.table(res);
+             rolesView();
+                 
+            menuOptions();
+          
+         })
+      })
+    };
 //   const departmentsAdd = () => {
 //     inquirer
 //     .prompt(
