@@ -5,5 +5,11 @@ class dbQuery {
 		this.connection = connection;
 	}
 
+    viewEmployees(){
+
+		return this.connection.query("SELECT * FROM employee")
+
+	}
+
 
 }
