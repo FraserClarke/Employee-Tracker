@@ -1,28 +1,29 @@
 const mysql = require("mysql");
 const cTable = require("console.table");
 const inquirer = require("inquirer");
+const dbQuery = require("./db/markdown");
 
-const connection = mysql.createConnection({
-  host: "localhost",
+// const connection = mysql.createConnection({
+//   host: "localhost",
 
-  // Your port, if not 3306
-  port: 3306,
+//   // Your port, if not 3306
+//   port: 3306,
 
-  // Your username
-  user: "root",
+//   // Your username
+//   user: "root",
 
-  // ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'yourRootPassword'
+//   // ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'yourRootPassword'
 
-  // Be sure to update with your own MySQL password!
-  password: "password", // Incorrect password = Access denied error
-  database: "employee_db", // Make sure this is an existing database
-});
+//   // Be sure to update with your own MySQL password!
+//   password: "password", // Incorrect password = Access denied error
+//   database: "employee_db", // Make sure this is an existing database
+// });
 
-connection.connect((err) => {
-  if (err) throw err;
-  console.log(`connected as id ${connection.threadId}`);
-  //connection.end();
-});
+// connection.connect((err) => {
+//   if (err) throw err;
+//   console.log(`connected as id ${connection.threadId}`);
+//   //connection.end();
+// });
 
 //MUST HAVE
 //    View departments, roles, employees
@@ -162,26 +163,24 @@ const menuOptions = () => {
 //     runSearch();
 //   });
 // };
-function viewEmployees() {
-    connection.query("SELECT * FROM employee", (err, res) => {
-        if (err) throw err;
-    
-        //JSON.stringify(res);
-        //console.log(action.res);
-        return res;
-    });
-};
-async function employeeView() {
-//   connection.query("SELECT * FROM employee", (err, res) => {
-//     if (err) throw err;
-    let employees = await connection.query("SELECT * FROM employee");
-//     //JSON.stringify(res);
-//     //console.log(action.res);
-    console.log(employees);
-    console.table(employees);
-    menuOptions();
-    //connection.end();
-  //});
+
+async function employeeView () {
+  let employees = await dbQuery.viewEmployees();
+  console.table(employees);
+  //   console.table(res);
+  menuOptions();
+
+
+  // connection.query("SELECT * FROM employee", (err, res) => {
+  //   if (err) throw err;
+
+  //   //JSON.stringify(res);
+  //   //console.log(action.res);
+  //   console.log(res);
+  //   console.table(res);
+  //   menuOptions();
+  //   //connection.end();
+  // });
 };
 
 const departmentsView = () => {
@@ -326,26 +325,41 @@ const employeeAdd = () => {
     });
 };
 
-const employeeUpdateRoles = () => {
-    const employees = 
-    connection.query("SELECT * FROM employee", (err, res) => {
-        if (err) throw err;
-        return res;
-        
-      });
-   
-    console.log(employees);
+async function employeeUpdateRoles() {
+  let employees = await dbQuery.viewEmployees();
+  // console.log(employees);
+  let employeeList = employees.map((employee) => (
+    {name: employee.first_name + " " + employee.last_name,
+     value: employee.id
+    }
+  ))
+
+  //do same as above for roleList
+
+   // console.log(employeeList);
     inquirer
       .prompt([
         {
-          type: "input",
-          name: "add ----",
-          message: "Enter ----:",
+          type: "list",
+          name: "employeeSelection",
+          message: "Which persons role do you want to update?",
+          choices: employeeList
         },
       ])
     //};
-    .then((data) => {
-        console.log(data);
+    .then((employee) => {
+       //let employeeId = get id from employee
+
+        inquirer.prompt([
+        {
+          type: "list",
+          name: "roleSelection",
+          message: "Which  role do you want to update to?",
+          choices: roleList
+        },
+      ]).
+        then(
+          )
         connection.query(
           `UPDATE  employee (first_name, last_name, role_id, manager_id)
               VALUES ("${data.addFirstName}","${data.addLastName}","${data.addRoleId}","${data.addManagerId}");`,
