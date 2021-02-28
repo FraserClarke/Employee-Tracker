@@ -162,18 +162,26 @@ const menuOptions = () => {
 //     runSearch();
 //   });
 // };
-
-const employeeView = () => {
-  connection.query("SELECT * FROM employee", (err, res) => {
-    if (err) throw err;
-
-    //JSON.stringify(res);
-    //console.log(action.res);
-    console.log(res);
-    console.table(res);
+function viewEmployees() {
+    connection.query("SELECT * FROM employee", (err, res) => {
+        if (err) throw err;
+    
+        //JSON.stringify(res);
+        //console.log(action.res);
+        return res;
+    });
+};
+async function employeeView() {
+//   connection.query("SELECT * FROM employee", (err, res) => {
+//     if (err) throw err;
+    let employees = await connection.query("SELECT * FROM employee");
+//     //JSON.stringify(res);
+//     //console.log(action.res);
+    console.log(employees);
+    console.table(employees);
     menuOptions();
     //connection.end();
-  });
+  //});
 };
 
 const departmentsView = () => {
@@ -319,6 +327,14 @@ const employeeAdd = () => {
 };
 
 const employeeUpdateRoles = () => {
+    const employees = 
+    connection.query("SELECT * FROM employee", (err, res) => {
+        if (err) throw err;
+        return res;
+        
+      });
+   
+    console.log(employees);
     inquirer
       .prompt([
         {
