@@ -11,5 +11,10 @@ class dbQuery {
 
 	}
 
+    updateRole(empId, roleId){
+		return this.connection.query("UPDATE employee SET roleId = ? WHERE id = ?",
+			[])
+
+	}
 
 }
