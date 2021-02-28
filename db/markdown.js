@@ -18,3 +18,5 @@ class dbQuery {
 	}
 
 }
+
+module.exports = new dbQuery(connection);
