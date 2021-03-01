@@ -197,6 +197,13 @@ const departmentsView = () => {
   });
 };
 
+async function rolesView () {
+    let roles = await dbQuery.viewEmployees();
+    console.table(roles);
+    //   console.table(res);
+    menuOptions();
+}
+
 const rolesView = () => {
   connection.query("SELECT * FROM role", (err, res) => {
     if (err) throw err;
@@ -343,7 +350,7 @@ async function employeeUpdateRoles() {
         {
           type: "list",
           name: "employeeSelection",
-          message: "Which persons role do you want to update?",
+          message: "Which Employees role do you want to update?",
           choices: employeeList
         },
       ])
@@ -355,7 +362,7 @@ async function employeeUpdateRoles() {
         {
           type: "list",
           name: "roleSelection",
-          message: "Which  role do you want to update to?",
+          message: "Which  Role do you want to update to?",
           choices: roleList
         },
       ]).
