@@ -376,26 +376,10 @@ async function employeeUpdateRoles() {
       ]).
         then
 
-        ((data) => dbQuery.updateRole(data.roleSelection,employeeId))
+        ((data) => {dbQuery.updateRole(data.roleSelection,employeeId)
           
-        connection.query(
-          `UPDATE  employee (first_name, last_name, role_id, manager_id)
-              VALUES ("${data.addFirstName}","${data.addLastName}","${data.addRoleId}","${data.addManagerId}");`,
-             // UPDATE products SET ? WHERE ?',
-              //       [
-              //         {
-              //           quantity: 100,
-              //         },
-              //         {
-              //           flavor: 'Rocky Road',
-              //         },
-              //       ],
-              (err, res) => {
-            if (err) throw err;
-            //       //JSON.stringify(res);
-            //         console.log(`${res.affectedRows} employee updated!\n`);
-            console.log(res);
-            console.table(res);
+      
+            
             employeeView();
   
             menuOptions();
