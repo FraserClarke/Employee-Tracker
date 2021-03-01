@@ -374,8 +374,10 @@ async function employeeUpdateRoles() {
           choices: roleList
         },
       ]).
-        then(
-          )
+        then
+
+        ((data) => dbQuery.updateRole(data.roleSelection,employeeId))
+          
         connection.query(
           `UPDATE  employee (first_name, last_name, role_id, manager_id)
               VALUES ("${data.addFirstName}","${data.addLastName}","${data.addRoleId}","${data.addManagerId}");`,

@@ -17,9 +17,9 @@ class dbQuery {
 	};
 
 
-    updateRole(empId, roleId){
-		return this.connection.query("UPDATE employee SET roleId = ? WHERE id = ?",
-			[])
+    updateRole(employeeId, roleId){ //pass into array
+		return this.connection.query("UPDATE employee SET roleId = ? WHERE id = ?",//first , then second
+			[employeeId, roleId])
 
 	};
 
