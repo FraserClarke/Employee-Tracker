@@ -8,7 +8,7 @@ An application to architect and build a solution for managing a company's employ
 * I want to be able to view and manage the departments, roles, and employees in my company
 * So that I can organize and plan my business
 
-*  A command-line application that at allows the user to:
+#### A command-line application that at allows the user to:
 
   * Add departments, roles, employees
 
@@ -59,7 +59,7 @@ This is anapplication to architect and build a solution for managing a company's
 
 * [Github Repository](https://github.com/FraserClarke/Employee-Tracker)
 
-* [Walkthrough Video]()
+* [Walkthrough Video](https://drive.google.com/file/d/1n33hppzu_Ij8ETVIpjgkLlwMRmuXg7Ps/view)
 
 
 ## Credits
