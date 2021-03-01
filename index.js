@@ -362,13 +362,15 @@ async function employeeUpdateRoles() {
       ])
     //};
     .then((employee) => {
-       //let employeeId = get id from employee
-        
+       let employeeId = employee.employeeSelection;
+        console.log(employee);
+        let roleId = employee.roleSelection;
+        console.log(roleId);
         inquirer.prompt([
         {
           type: "list",
           name: "roleSelection",
-          message: "Which  Role do you want to update to?",
+          message: "Which Role do you want to update to?",
           choices: roleList
         },
       ]).
