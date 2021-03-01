@@ -341,10 +341,16 @@ async function employeeUpdateRoles() {
      value: employee.id
     }
   ))
+  let roles = await dbQuery.viewRoles();
+  // console.log(employees);
+  let roleList = roles.map((role) => (
+    {name: role.title + " " + role.salary + " " + role.department_id,
+     value:role.id
+    }
+  ));
+  //same as above for roleList
 
-  //do same as above for roleList
-
-   // console.log(employeeList);
+    console.log(employeeList);
     inquirer
       .prompt([
         {
@@ -357,7 +363,7 @@ async function employeeUpdateRoles() {
     //};
     .then((employee) => {
        //let employeeId = get id from employee
-
+        
         inquirer.prompt([
         {
           type: "list",
