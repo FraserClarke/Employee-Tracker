@@ -198,24 +198,24 @@ const departmentsView = () => {
 };
 
 async function rolesView () {
-    let roles = await dbQuery.viewEmployees();
+    let roles = await dbQuery.viewRoles();
     console.table(roles);
     //   console.table(res);
     menuOptions();
 }
 
-const rolesView = () => {
-  connection.query("SELECT * FROM role", (err, res) => {
-    if (err) throw err;
+// const rolesView = () => {
+//   connection.query("SELECT * FROM role", (err, res) => {
+//     if (err) throw err;
 
-    //JSON.stringify(res);
-    //console.log(action.res);
-    console.log(res);
-    console.table(res);
-    menuOptions();
-    //connection.end();
-  });
-};
+//     //JSON.stringify(res);
+//     //console.log(action.res);
+//     console.log(res);
+//     console.table(res);
+//     menuOptions();
+//     //connection.end();
+//   });
+// };
 
 const departmentsAdd = () => {
   inquirer
